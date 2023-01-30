@@ -1,35 +1,13 @@
-import React, { createElement } from 'react'
-import {useRef, useState, useEffect } from 'react';
-import axios from 'axios';
+import React from 'react'
+import { useState } from 'react';
 import Router, { useRouter } from 'next/router';
 
 
 
-class Login extends React.Component {
-  
-    constructor(props) {
-        // const { setAuth } = useContext(AuthContext);
-        super(props) //super = override attribute 
-        this.state = { //  usestate in react component
-            user: '',
-            pwd: '',
-            errMsg:'',
-        };
-
-        this.handleChange = this.handleChange.bind(this); 
-        this.handleSubmit = this.handleSubmit.bind(this);
-        
-        
-    }
-    
-
-   
-
-    handleChange(event) { //function untuk menghandle event onChange
-        this.setState({value: event.target.value}); 
-    }
-
-    handleSubmit(event) { // function untuk menghandle onSubmit
+const Login = (props) => {
+  const [ errMsg, setErrMsg ] = useState('')
+  const router = useRouter()
+    const handleSubmit = (event) => { // function untuk menghandle onSubmit
 
         event.preventDefault() // untuk mengoperasikan submit melalui react (manual)
         
@@ -50,25 +28,25 @@ class Login extends React.Component {
 
           axios(config)
           .then(function (response) {
-            console.log(JSON.stringify(response.data));
+            if(response.status === 200) {
+              router.push("/chat")
+            }
+
           })
           .catch((error)=> {
             if(error.response.status === 401) {
-                this.setState({ errMsg: "Incorrect username and/or password" })
-          
+              setErrMsg("Incorrect username and/or password")
             }
           
           });
      }
-    
-    render() {
         
   return (
     <div className='mt-9 mx-auto'>
                   <h1 className='text-white text-center font-extralight font-raleway'>Sirkelin</h1>
                   <h2 className='pt-4 text-left text-xl mt-3 font-raleway'>Welcome Back... </h2>
-                  <p className={this.state.errMsg === '' ? "offscreen" : "errMsg"}>{ this.state.errMsg }</p>
-                  <form onSubmit={this.handleSubmit} className="mt-4">
+                  <p className={ errMsg === '' ? "offscreen" : "errMsg" }>{ errMsg }</p>
+                  <form onSubmit={ handleSubmit } className="mt-4">
                     <div className="mb-2">
                         <label
                             htmlFor="email"
@@ -111,7 +89,7 @@ class Login extends React.Component {
                     {" "}
                     Don't have an account?{" "}
                     <a
-                        onClick = {this.props.handler}
+                        onClick = { props.handler }
                         className="font-medium text-purple-600 hover:underline"
                         >
                         Sign up
@@ -120,6 +98,4 @@ class Login extends React.Component {
               </div>
   )
 }
-}
-
 export default Login
