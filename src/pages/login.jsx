@@ -7,8 +7,8 @@ import Router, { useRouter } from 'next/router';
 const Login = (props) => {
   const [ errMsg, setErrMsg ] = useState('')
   const router = useRouter()
-    const handleSubmit = (event) => { // function untuk menghandle onSubmit
-
+  const [token, setToken] = useState('')
+  const handleSubmit = (event) => { // function untuk menghandle onSubmit
         event.preventDefault() // untuk mengoperasikan submit melalui react (manual)
         
         var axios = require('axios'); //fetch POST API using axios
@@ -29,11 +29,13 @@ const Login = (props) => {
           axios(config)
           .then(function (response) {
             if(response.status === 200) {
+              setToken(response.data.token)
               router.push("/chat")
             }
 
           })
           .catch((error)=> {
+            console.log(error)
             if(error.response.status === 401) {
               setErrMsg("Incorrect username and/or password")
             }

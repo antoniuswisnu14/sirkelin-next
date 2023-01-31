@@ -49,8 +49,8 @@ class Signup extends React.Component{
             console.log(JSON.stringify(response.data));
           })
           .catch((error)=> {
-            if(error.response.status === 400) {
-                this.setState({ errMsg: 'username/email already exist'})
+            if(error.response.status === axios.HttpStatusCode.BadRequest) {
+                this.setState({ errMsg: error.response.data.data.error})
             }
           });
      }

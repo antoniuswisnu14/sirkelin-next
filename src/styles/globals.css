@@ -14,7 +14,7 @@ radial-gradient(at 39% 0%, rgba(2, 47, 85, 0.33) 0px, transparent 50%);
 color: white;
 
 }
-
+/* login */
 .font-raleway{
   font-family: 'Raleway', sans-serif;
 }
@@ -43,4 +43,24 @@ color: white;
 
 .offscreen{
   display: none;
+}
+/* login */
+
+
+.wh-chat {
+  width: 100%;
+  height: 100%;
+}
+
+.navbar-ct {
+  width: 280px;
+}
+
+.font-montserrat{
+  font-family: 'Montserrat', sans-serif;
+}
+
+.font-yantramanav {
+  font-family: 'Yantramanav', sans-serif;
+  font-weight: 300;
 }
