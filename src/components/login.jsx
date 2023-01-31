@@ -25,7 +25,7 @@ export default function Login(props) {
     axios(config)
     .then(function (response) {
       if(response.status === axios.HttpStatusCode.Ok) {
-        router.push("/chat")
+        router.push("/messages")
       }
     })
     .catch((error)=> {
