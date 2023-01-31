@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import Login from '../pages/login'
-import Signup from '../pages/signup'
+import Login from '../components/login'
+import Signup from '../components/signup'
 import puplepattern from 'src/asset/texture-dark-background-purple-3840x2715-3086.jpg'
 import React from 'react'
 
@@ -22,7 +22,7 @@ class Home extends React.Component {
     }));
   }
 
-  
+
   render() {
     return (
       <>
