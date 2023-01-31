@@ -54,7 +54,7 @@ export default function Dashboard() {
       <main className=''>
         <div className='h-screen'>
           <div className='wh-chat flex'>
-            <div className='p-8 navbar-ct'>
+            <div className='p-8 navbar-ct backdrop-blur-sm bg-black/30'>
               <h1 className='text-3xl text-center' style={montserrat.style}>Sirkelin.</h1>
               <div className='mt-12 grid text-center gap-10 text-xl'>
                 <Link href="/messages" legacyBehavior>
