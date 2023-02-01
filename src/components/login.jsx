@@ -15,7 +15,7 @@ export default function Login(props) {
 
     var config = {
       method: 'post',
-      url: 'https://malakh.space/user/login/',
+      url: 'https://malakh.space/api/user/login/',
       // withCredentials: true,
       headers: { 
         'Content-Type': 'application/json'

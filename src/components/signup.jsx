@@ -12,7 +12,7 @@ export default function Signup(props) {
     });
     var config = {
       method: 'post',
-      url: 'https://malakh.space/user/register/',
+      url: 'https://malakh.space/api/user/register/',
       headers: {
         'Content-Type': 'application/json'
       },
