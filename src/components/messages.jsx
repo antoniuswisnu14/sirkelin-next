@@ -3,9 +3,8 @@ import { useRouter } from 'next/router'
 
 export default function Messages() {
     const router = useRouter();
-    var axios = require('axios');
 
-    fetch('https://malakh.space/room/', {
+    fetch('https://malakh.space/api/room/', {
         method: 'GET',
         credentials: 'include',
       })
