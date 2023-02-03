@@ -29,17 +29,19 @@ export default function Messages() {
         <div className='grow-5 text-2xl'> 
             <h1 className=' pt-8 text-center' style={montserrat}>Messages</h1>
             <div className="flex items-center">
-            <div className="flex space-x-1">
+            <div className="flex items-center gap-3 m-4 py-2 px-4 backdrop-blur-sm bg-[#323232]/30 rounded-full">
+                <FontAwesomeIcon className='text-base text-gray-700' icon={faSearch}></FontAwesomeIcon>
                 <input
                     type="text"
-                    className="block ml-5 mt-5 w-30 h-7 px-4 py-1 text-white bg-gray-600 rounded-full  focus:outline-none "
+                    className="block w-30 h-7 text-base bg-transparent text-white focus:outline-none"
+                    placeholder='Search...'
                 />
+            </div>
             {
                 () => {
                     for (chat of chats) "<span>"+chats+"</br></span>"
                 }
             }
-            </div>
         </div>
         </div>
     )

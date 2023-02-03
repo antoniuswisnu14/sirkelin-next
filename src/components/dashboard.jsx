@@ -54,17 +54,17 @@ export default function Dashboard() {
       <main className=''>
         <div className='h-screen'>
           <div className='wh-chat flex'>
-            <div className='p-8 navbar-ct backdrop-blur-sm bg-[#505050]/30'>
+            <div className='p-8 navbar-ct backdrop-blur-sm bg-[#323232]/30'>
               <h1 className='text-3xl text-center' style={montserrat.style}>Sirkelin.</h1>
               <div className='mt-12 grid text-center gap-10 text-xl'>
                 <Link href="/messages" legacyBehavior>
-                  <button className='flex group gap-4  hover:bg-gray-400/30 hover: transition-colors duration-200 rounded-xl p-3'><FontAwesomeIcon className='self-center group-hover:stroke-white' icon={faComment}/><span style={yantramanav.style} className='ml-4 font-yantramanav'> messages</span></button>
+                  <button className='flex group gap-4 hover:bg-gradient-to-r from-violet-900 to-indigo-700 rounded-xl p-3'><FontAwesomeIcon className='self-center group-hover:stroke-white' icon={faComment}/><span style={yantramanav.style} className='ml-4 font-yantramanav'> messages</span></button>
                 </Link>
                 <Link href="/circle" legacyBehavior>
-                  <button className='flex group gap-4  hover:bg-gradient-to-r from-violet-900 to-indigo-700 rounded-xl p-3'><FontAwesomeIcon className='self-center group-hover:stroke-white' icon={faInfinity} /><span style={yantramanav.style} className=' ml-3 font-yantramanav'> circle</span></button>
+                  <button className='flex group gap-4 hover:bg-gradient-to-r from-violet-900 to-indigo-700 rounded-xl p-3'><FontAwesomeIcon className='self-center group-hover:stroke-white' icon={faInfinity} /><span style={yantramanav.style} className=' ml-3 font-yantramanav'> circle</span></button>
                 </Link>
-                <button className='flex group gap-4  hover:bg-gradient-to-r from-violet-900 to-indigo-700  rounded-xl p-3'><FontAwesomeIcon className='self-center group-hover:stroke-white' icon={faUserGroup} /><span style={yantramanav.style} className=' ml-3 font-yantramanav'> friend list</span></button>
-                <button className='flex group gap-4  hover:bg-gradient-to-r from-violet-900 to-indigo-700  rounded-xl p-3'><FontAwesomeIcon className='self-center group-hover:stroke-white' icon={faHouse} /><span style={yantramanav.style} className=' ml-3 font-yantramanav'> explore</span></button>
+                <button className='flex group gap-4 hover:bg-gradient-to-r from-violet-900 to-indigo-700  rounded-xl p-3'><FontAwesomeIcon className='self-center group-hover:stroke-white' icon={faUserGroup} /><span style={yantramanav.style} className=' ml-3 font-yantramanav'> friend list</span></button>
+                <button className='flex group gap-4 hover:bg-gradient-to-r from-violet-900 to-indigo-700  rounded-xl p-3'><FontAwesomeIcon className='self-center group-hover:stroke-white' icon={faHouse} /><span style={yantramanav.style} className=' ml-3 font-yantramanav'> explore</span></button>
               </div>
             </div>
             { view }
