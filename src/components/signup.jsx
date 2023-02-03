@@ -7,7 +7,7 @@ export default function Signup(props) {
     var axios = require('axios'); //fetch POST API using axios
     var data = JSON.stringify({
       "email": document.querySelector("#email").value,
-      "name": document.querySelector("#username").value,
+      "username": document.querySelector("#username").value,
       "password": document.querySelector("#password").value
     });
     var config = {

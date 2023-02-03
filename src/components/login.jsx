@@ -9,7 +9,7 @@ export default function Login(props) {
         
     var axios = require('axios'); //fetch POST API using axios
     var data = JSON.stringify({
-      "name": document.querySelector("#username").value,
+      "username": document.querySelector("#username").value,
       "password": document.querySelector("#password").value
     });
 
