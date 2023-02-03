@@ -26,23 +26,23 @@ export default function Messages() {
     }, [ chats ])
 
     return (
-        <div className='grow-5 text-2xl'> 
-            <h1 className=' pt-8 text-center' style={montserrat}>Messages</h1>
-            <div className="flex items-center">
-            <div className="flex items-center gap-3 m-4 py-2 px-4 backdrop-blur-sm bg-[#323232]/30 rounded-full">
-                <FontAwesomeIcon className='text-base text-gray-700' icon={faSearch}></FontAwesomeIcon>
-                <input
-                    type="text"
-                    className="block w-30 h-7 text-base bg-transparent text-white focus:outline-none"
-                    placeholder='Search...'
-                />
-            </div>
-            {
-                () => {
-                    for (chat of chats) "<span>"+chats+"</br></span>"
+        <div className='w-96 p-4' style={montserrat.style}> 
+            <h1 className='py-4 text-2xl text-center'>Messages</h1>
+            <div className=''>
+                <div className='flex items-center gap-3 py-2 px-4 rounded-full backdrop-blur-sm bg-[#323232]/30 hover:bg-[#404040]/30 focus-within:bg-[#404040]/30'>
+                    <FontAwesomeIcon className='text-base text-gray-700' icon={faSearch}></FontAwesomeIcon>
+                    <input
+                        type='text'
+                        className='grow h-7 text-base bg-transparent text-gray-200 focus:outline-none'
+                        placeholder='Search...'
+                    />
+                </div>
+                {
+                    () => {
+                        for (chat of chats) "<span>"+chats+"</br></span>"
+                    }
                 }
-            }
-        </div>
+            </div>
         </div>
     )
 }
