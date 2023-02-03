@@ -1,5 +1,4 @@
-import React from 'react';
-import { useRouter } from 'next/router'
+import React, { useState } from 'react';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Montserrat, Yantramanav } from '@next/font/google'
@@ -11,7 +10,7 @@ const montserrat = Montserrat({
 
 export default function Messages() {
     
-    const router = useRouter();
+    const [ chats, setChat ] = useState(null)
 
 
     fetch('https://malakh.space/api/private/', {
@@ -20,7 +19,7 @@ export default function Messages() {
       })
       .then((res) => res.json())
       .then((json) => {
-          console.log(json);
+          setChat([json.data.rooms.username])
       })
       .catch((err) => {
           console.log(err);
@@ -35,6 +34,11 @@ export default function Messages() {
                     type="text"
                     className="block ml-5 mt-5 w-30 h-7 px-4 py-1 text-white bg-gray-600 rounded-full  focus:outline-none "
                 />
+            {
+                () => {
+                    for (chat of chats) "<span>"+chats+"</br></span>"
+                }
+            }
             </div>
         </div>
         </div>
