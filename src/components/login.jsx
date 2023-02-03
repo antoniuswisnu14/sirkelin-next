@@ -16,11 +16,10 @@ export default function Login(props) {
     var config = {
       method: 'post',
       url: 'https://malakh.space/api/user/login/',
-      // withCredentials: true,
       headers: { 
         'Content-Type': 'application/json'
       },
-      data : data
+      data: data
     };
 
     axios(config)
@@ -33,7 +32,7 @@ export default function Login(props) {
       if(error?.response.status === axios.HttpStatusCode.Unauthorized) {
         setErrMsg("Incorrect username and/or password")
       }          
-    });
+    })
   }
         
   return (

@@ -1,29 +1,29 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { Montserrat, Yantramanav } from '@next/font/google'
+import { Montserrat } from '@next/font/google'
 
 const montserrat = Montserrat({
     weight: "400",
     subsets: ["latin"]
   })
 
-export default function Messages() {
-    
-    const [ chats, setChat ] = useState(null)
+export default function Messages() {    
+    const [ chats, setChat ] = useState([])
 
-
-    fetch('https://malakh.space/api/private/', {
-        method: 'GET',
-        credentials: 'include',
+    useEffect(() => {        
+        fetch('https://malakh.space/api/private/', {
+            method: 'GET',
+            credentials: 'include',
       })
       .then((res) => res.json())
       .then((json) => {
-          setChat([json.data.rooms.username])
+          setChat(json.data.rooms.username)
       })
       .catch((err) => {
           console.log(err);
-      });
+      })
+    }, [ chats ])
 
     return (
         <div className='grow-5 text-2xl'> 
