@@ -86,7 +86,7 @@ export default function Login(props) {
         Don't have an account?{" "}
         <a
           onClick = { props.handler }
-          className="font-medium text-purple-600 hover:underline"
+          className="font-medium text-purple-600 hover:underline cursor-pointer"
         >
           Sign up
         </a>

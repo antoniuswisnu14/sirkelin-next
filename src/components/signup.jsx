@@ -91,7 +91,7 @@ export default function Signup(props) {
         Already have an account?{" "}
         <a
           onClick = { props.handler }
-          className="font-medium text-purple-600 hover:underline"
+          className="font-medium text-purple-600 hover:underline cursor-pointer"
         >
           login
         </a>
