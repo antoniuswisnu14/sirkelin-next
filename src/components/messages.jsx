@@ -30,7 +30,7 @@ export default function Messages() {
       <header>
         <h1 className='text-2xl text-center'>Messages</h1>
       </header>
-      <div className='w-96 p-4' style={montserrat.style}>
+      <div className='w-96 px-4' style={montserrat.style}>
         <div className=''>
           <div className='flex items-center gap-3 py-2 px-4 rounded-full backdrop-blur-sm bg-[#323232]/30 hover:bg-[#404040]/30 focus-within:bg-[#404040]/30'>
             <FontAwesomeIcon className='text-base text-gray-700' icon={faSearch}></FontAwesomeIcon>
