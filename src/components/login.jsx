@@ -1,17 +1,19 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import { useRouter } from 'next/router'
 
 export default function Login(props) {
   const [ errMsg, setErrMsg ] = useState('')
+  const usernameRef = useRef('')
+  const passwordRef = useRef('')
   const router = useRouter()
   const handleSubmit = (event) => { // function untuk menghandle onSubmit
     event.preventDefault() // untuk mengoperasikan submit melalui react (manual)
         
     var axios = require('axios'); //fetch POST API using axios
     var data = JSON.stringify({
-      "username": document.querySelector("#username").value,
-      "password": document.querySelector("#password").value
-    });
+      'username': usernameRef.current.value,
+      'password': passwordRef.current.value
+    })
 
     var config = {
       method: 'post',
@@ -20,7 +22,7 @@ export default function Login(props) {
         'Content-Type': 'application/json'
       },
       data: data
-    };
+    }
 
     axios(config)
     .then(function (response) {
@@ -29,9 +31,11 @@ export default function Login(props) {
       }
     })
     .catch((error)=> {
-      if(error?.response.status === axios.HttpStatusCode.Unauthorized) {
+      if(error?.response?.status === axios.HttpStatusCode.Unauthorized) {
         setErrMsg("Incorrect username and/or password")
-      }          
+      } else {
+        setErrMsg("Server not responding")
+      }
     })
   }
         
@@ -49,6 +53,7 @@ export default function Login(props) {
             Username
           </label>
           <input
+            ref={usernameRef}
             id="username"
             autoComplete='off'
             type="text"
@@ -63,6 +68,7 @@ export default function Login(props) {
             Password
           </label>
           <input
+            ref={passwordRef}
             id="password"
             type="password"
             autoComplete='off'

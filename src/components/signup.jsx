@@ -1,14 +1,17 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 
 export default function Signup(props) {
   const [ errMsg, setErrMsg ] = useState('')
+  const usernameRef = useRef('')
+  const emailRef = useRef('')
+  const passwordRef = useRef('')
   function handleSubmit(event) { // function untuk menghandle onSubmit
     event.preventDefault() // untuk mengoperasikan submit melalui react (manual)
     var axios = require('axios'); //fetch POST API using axios
     var data = JSON.stringify({
-      "email": document.querySelector("#email").value,
-      "username": document.querySelector("#username").value,
-      "password": document.querySelector("#password").value
+      'email': emailRef.current.value,
+      'username': usernameRef.current.value,
+      'password': passwordRef.current.value
     });
     var config = {
       method: 'post',
@@ -41,6 +44,7 @@ export default function Signup(props) {
             Username
           </label>
           <input
+            ref={usernameRef}
             autoComplete='off'
             id="username"
             type="text"
@@ -55,6 +59,7 @@ export default function Signup(props) {
             Email
           </label>
           <input
+            ref={emailRef}
             autoComplete='off'
             id="email"
             type="email"
@@ -69,6 +74,7 @@ export default function Signup(props) {
             Password
           </label>
           <input
+            ref={passwordRef}
             id="password"
             type="password"
             className="block w-full px-4 py-1 mt-2 text-black bg-gray-dark rounded-md  focus:ring-purple-600 focus:outline-none focus:ring focus:ring-opacity-40"
